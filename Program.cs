@@ -20,7 +20,7 @@ namespace ConsoleAppFbFramework019
 
 
 
-            //firebirdDBinfo( strConnection2FB);
+            firebirdDBinfo( strConnection2FB);
 
             connToDBsimple(strConnection2FB);
 
