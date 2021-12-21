@@ -158,7 +158,7 @@ namespace ConsoleAppFbFramework019
 
             dbConnectionStringBuilder["Data Source"] = "localhost";
             //dbConnectionStringBuilder["Initial Catalog"] = @"C:\SSG\PROJECTs\TELET\DB4TELEFONE\sampd_cexs.fdb";//"sampd_cexs";
-            dbConnectionStringBuilder["Database"] = Path.Combine(strExePath, "sampd_cexs.fdb");
+            dbConnectionStringBuilder["Database"] = Path.Combine(strExePath, "tmp.fdb");
 
             dbConnectionStringBuilder["User ID"] = "sysdba";
             dbConnectionStringBuilder["Password"] = "masterkey";
