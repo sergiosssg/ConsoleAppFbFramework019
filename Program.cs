@@ -34,14 +34,31 @@ namespace ConsoleAppFbFramework019
             {
                 using (var dbContent = new DbAppContext(sConnectionString))
                 {
-                    var simpleQueryOfVidConnects = dbContent.pO_TEL_VID_CONNECTs.Where(s => s.Id > 0);
 
-                    Console.WriteLine("=================================================");
-                    foreach (var oneElement in simpleQueryOfVidConnects)
+
+
+                    /*                    var simpleQueryOfVidConnects = dbContent.pO_TEL_VID_CONNECTs.Where(s => s.Id > 0);
+
+
+                                        Console.WriteLine("=================================================");
+                                        foreach (var oneElement in simpleQueryOfVidConnects)
+                                        {
+                                            Console.WriteLine(" Id = {0}  Kod связи {1}  Название вида связи {2}", oneElement.Id, oneElement.KodOfConnect, oneElement.Name);
+                                        }
+                                        Console.WriteLine("=================================================");*/
+
+
+
+                    var simpleVidConnects = dbContent.pO_TEL_VID_CONNECTs;
+
+
+                    foreach(var oneTEL_VID_CONNECT in simpleVidConnects)
                     {
-                        Console.WriteLine(" Id = {0}  Kod связи {1}  Название вида связи {2}", oneElement.Id, oneElement.KodOfConnect, oneElement.Name);
+                        Console.WriteLine(" Id = {0}  Kod связи {1}  Название вида связи {2}", oneTEL_VID_CONNECT.Id, oneTEL_VID_CONNECT.KodOfConnect, oneTEL_VID_CONNECT.Name);
+
                     }
-                    Console.WriteLine("=================================================");
+
+
 
                     return dbContent;
                 }
@@ -161,7 +178,7 @@ namespace ConsoleAppFbFramework019
             DbConnectionStringBuilder dbConnectionStringBuilder = new DbConnectionStringBuilder();
 
 
-            dbConnectionStringBuilder["ClientLibrary"] = @"C:\Program Files\Firebird\Firebird_2_5\bin\fbclient.dll";
+            //dbConnectionStringBuilder["ClientLibrary"] = @"C:\Program Files\Firebird\Firebird_2_5\bin\fbclient.dll";
 
             dbConnectionStringBuilder["Data Source"] = "localhost";
             //dbConnectionStringBuilder["Initial Catalog"] = @"C:\SSG\PROJECTs\TELET\DB4TELEFONE\sampd_cexs.fdb";//"sampd_cexs";
