@@ -20,7 +20,7 @@ namespace ConsoleAppFbFramework019
 
 
 
-            firebirdDBinfo( strConnection2FB);
+            firebirdDBinfo(strConnection2FB);
 
             connToDBsimple(strConnection2FB);
 
@@ -30,25 +30,28 @@ namespace ConsoleAppFbFramework019
 
         private static DbContext connToDBEntity(string sConnectionString)
         {
-            using (var dbContent = new DbAppContext(sConnectionString))
+            try
+            {
+                using (var dbContent = new DbAppContext(sConnectionString))
+                {
+                    var simpleQueryOfVidConnects = dbContent.pO_TEL_VID_CONNECTs.Where(s => s.Id > 0);
+
+                    Console.WriteLine("=================================================");
+                    foreach (var oneElement in simpleQueryOfVidConnects)
+                    {
+                        Console.WriteLine(" Id = {0}  Kod связи {1}  Название вида связи {2}", oneElement.Id, oneElement.KodOfConnect, oneElement.Name);
+                    }
+                    Console.WriteLine("=================================================");
+
+                    return dbContent;
+                }
+
+            }
+            catch (Exception ex)
             {
 
-                var simpleQueryOfVidConnects = dbContent.pO_TEL_VID_CONNECTs.Where(s => s.Id > 0);
-
-
-
-                Console.WriteLine("=================================================");
-                foreach (var oneElement in simpleQueryOfVidConnects)
-                {
-                    Console.WriteLine(" Id = {0}  Kod связи {1}  Название вида связи {2}", oneElement.Id, oneElement.KodOfConnect, oneElement.Name);
-                }
-                Console.WriteLine("=================================================");
-
-
-                return dbContent;
             }
             return null;
-
         }
 
 
