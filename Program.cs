@@ -105,7 +105,8 @@ namespace ConsoleAppFbFramework019
                     {
                         dbConnection.Open();
                         dbInfo = new FbDatabaseInfo((FbConnection)dbConnection);
-                        Console.WriteLine("Server Version: {0}", dbInfo.ServerVersion);
+                        /*
+                        Console.WriteLine("Server Version: {0}", dbInfo.GetServerVersionAsync);
                         Console.WriteLine("ISC Version : {0}", dbInfo.IscVersion);
                         Console.WriteLine("Server Class : {0}", dbInfo.ServerClass);
                         Console.WriteLine("Max memory : {0}", dbInfo.MaxMemory);
@@ -138,6 +139,7 @@ namespace ConsoleAppFbFramework019
                         Console.WriteLine("Number of the oldest active snapshot: {0}", dbInfo.OldestActiveSnapshot);
                         Console.WriteLine("Number of the next transaction: {0}", dbInfo.NextTransaction);
                         Console.WriteLine("Number of active transactions: {0}", dbInfo.ActiveTransactions);
+                        */
                         dbConnection.Close();
                     }
                 }
