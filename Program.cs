@@ -1,6 +1,7 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Data.Entity;
 using System.Data.SqlClient;
@@ -48,6 +49,8 @@ namespace ConsoleAppFbFramework019
                                         Console.WriteLine("=================================================");*/
 
 
+
+                    var dataTable = GetProviderFactoryClasses();
 
                     var simpleVidConnects = dbContent.pO_TEL_VID_CONNECTs;
 
@@ -195,6 +198,24 @@ namespace ConsoleAppFbFramework019
 
             return dbConnectionStringBuilder.ConnectionString;
 
+        }
+
+
+
+        private static DataTable GetProviderFactoryClasses()
+        {
+            // Retrieve the installed providers and factories.
+            DataTable table = DbProviderFactories.GetFactoryClasses();
+            //var tableQueriable = from ee in table.Rows where true select ee;
+            // Display each row and column value.
+            foreach (DataRow row in table.Rows)
+            {
+                foreach (DataColumn column in table.Columns)
+                {
+                    Console.WriteLine(" \t {0}",row[column]);
+                }
+            }
+            return table;
         }
 
     }
